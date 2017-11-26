@@ -46,9 +46,13 @@ def get_feeling(config):
 
 def generate_preamble(local_hour):
     preamble = random.choice([
-        'Today,',
+        'I don\'t know about you, but'
+        'I need to tell you this:'
         'It\'s {} o\'clock, and',
+        'Just so you know,',
         'On this day,',
+        'Today,',
+        'Your {}:00 update:',
         'Wow…'])
     return preamble.format(local_hour % 12)
 
