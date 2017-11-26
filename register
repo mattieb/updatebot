@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import configparser
+import mastodon
+
+def read_config():
+    config = configparser.ConfigParser()
+    config.read('updatebot.ini')
+    return config
+
+config = read_config()
+client_config = config['client']
+
+mastodon.Mastodon.create_app(client_config['client_name'],
+        api_base_url=client_config['api_base_url'],
+        to_file=client_config['clientcred_file'])
+
