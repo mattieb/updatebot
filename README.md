@@ -4,13 +4,23 @@ updatebot is a Mastodon bot that tells you just how it is feeling every day at a
 
 ## Getting started
 
-Edit `updatebot.ini` as needed. The most important thing to change is your `api_base_url`, unless you're also using [botsin.space](https://botsin.space/).
+Edit the `client` section in `updatebot.ini` to set up your bot as a Mastodon client.
+
+The most important thing to change is your `api_base_url`, unless you're also using [botsin.space](https://botsin.space/).
 
 You'll probably also want to set a `client_name` to identify your bot.
 
 Run `register` to register the client, then `login` to log in using your bot's credentials.
 
-Configuration for 
+## Configuration
+
+Configuration for how the bot toots is in the `updates` section of `updatebot.ini`.
+
+`adjectives` specifies where the `adjectives.txt` file is, which contains all the possible adjectives the bot can use.
+
+`hour` and `timezone` specifies what hour the bot will toot on. I invoke updatebot every hour because my server is in UTC; the bot then figures out if it's 7 a.m. in Detroit or not to decide whether to toot.
+
+`feeling` is how the bot feels.
 
 ## Running the bot
 
@@ -24,5 +34,4 @@ I have updatebot running in its own Python [venv](https://docs.python.org/3/libr
 
 ## Inspiration
 
-updatebot was inspired by [BiBot](https://twitter.com/biupdatebot), but is a brand-new implementation by me, since I couldn't get in touch with whoever created it.
-
+updatebot was inspired by [BiBot](https://twitter.com/biupdatebot), but is a brand-new implementation by me, since I couldn't get in touch with whoever created it. My [bi update bot](https://botsin.space/@biupdatebot) runs on this codebase.
