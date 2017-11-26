@@ -27,10 +27,7 @@ import mastodon
 import pytz 
 import random
 
-def read_config():
-    config = configparser.ConfigParser()
-    config.read('updatebot.ini')
-    return config
+from config import read_config
 
 def get_local_hour(config):
     timezone_name = config['updates']['timezone']

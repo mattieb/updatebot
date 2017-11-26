@@ -4,10 +4,7 @@ import configparser
 import getpass
 import mastodon
 
-def read_config():
-    config = configparser.ConfigParser()
-    config.read('updatebot.ini')
-    return config
+from config import read_config
 
 config = read_config()
 client_config = config['client']
