@@ -22,12 +22,12 @@
 import configparser
 import os
 
-def get_config_pathname():
+def get_pathname(filename):
     dirname = os.path.dirname(os.path.realpath(__file__))
-    return os.path.join(dirname, 'updatebot.ini')
+    return os.path.join(dirname, filename)
 
 def read_config():
     config = configparser.ConfigParser()
-    config.read(get_config_pathname())
+    config.read(get_pathname('updatebot.ini'))
     return config
 

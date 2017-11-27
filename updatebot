@@ -27,7 +27,7 @@ import mastodon
 import pytz 
 import random
 
-from config import read_config
+from config import get_pathname, read_config
 
 def get_local_hour(config):
     timezone_name = config['updates']['timezone']
@@ -36,7 +36,7 @@ def get_local_hour(config):
     return now.hour
 
 def select_adjective(config):
-    with open(config['updates']['adjectives']) as f:
+    with open(get_pathname(config['updates']['adjectives'])) as f:
         adjectives = [adjective.strip() for adjective in f.readlines()]
 
     return random.choice(adjectives)
