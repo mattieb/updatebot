@@ -105,6 +105,8 @@ if local_hour == config['updates'].getint('morning_hour'):
     preamble = select_preamble('morning', local_hour)
 elif local_hour == config['updates'].getint('evening_hour'):
     preamble = select_preamble('evening', local_hour)
+else:
+    preamble = None
 
 if preamble:
     post = format_post(preamble, adjective, feeling)
