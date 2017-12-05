@@ -23,11 +23,37 @@
 
 import configparser
 import datetime
+import getpass
 import mastodon
+import os
 import pytz 
 import random
+import sys
 
-from config import get_pathname, read_config
+def read_config():
+    config = configparser.ConfigParser()
+    if len(sys.argv) > 1:
+        config.read(sys.argv[1])
+    else:
+        config.read('updatebot.ini')
+    return config
+
+def register(config):
+    clientcred_file = os.path.expanduser(config['client']['clientcred_file'])
+
+    mastodon.Mastodon.create_app(config['client']['client_name'],
+            api_base_url=config['client']['api_base_url'],
+            to_file=clientcred_file)
+
+def login(config):
+    email = input('Email: ')
+    password = getpass.getpass('Password: ')
+
+    clientcred_file = os.path.expanduser(config['client']['clientcred_file'])
+    usercred_file = os.path.expanduser(config['client']['usercred_file'])
+
+    client = mastodon.Mastodon(client_id=clientcred_file, api_base_url=config['client']['api_base_url'])
+    client.log_in(email, password, to_file=usercred_file)
 
 def get_local_hour(config):
     timezone_name = config['updates']['timezone']
@@ -36,7 +62,7 @@ def get_local_hour(config):
     return now.hour
 
 def select_adjective(config):
-    with open(get_pathname(config['updates']['adjectives'])) as f:
+    with open(os.path.expanduser(config['updates']['adjectives_file'])) as f:
         adjectives = [adjective.strip() for adjective in f.readlines()]
 
     return random.choice(adjectives)
@@ -44,35 +70,45 @@ def select_adjective(config):
 def get_feeling(config):
     return config['updates']['feeling']
 
-def generate_preamble(local_hour):
-    preamble = random.choice([
-        'I don\'t know about you, but',
-        'I need to tell you this:',
-        'It\'s {} o\'clock, and',
-        'Just so you know,',
-        'On this day,',
-        'Today,',
-        'Your {}:00 update:',
-        'Wow…'])
-    return preamble.format(local_hour % 12)
+def select_preamble(timeframe, local_hour):
+    with open(os.path.expanduser(config['updates']['{}_preambles_file'.format(timeframe)])) as f:
+        preambles = [preamble.strip() for preamble in f.readlines()]
+
+    return random.choice(preambles).format(hour=local_hour)
 
 def format_post(preamble, adjective, feeling):
-    return '{} I\'m feeling {} {}.'.format(preamble, adjective, feeling)
+    return '{} {} {}.'.format(preamble, adjective, feeling)
 
 def toot(config, post):
-    client_config = config['client']
-    client = mastodon.Mastodon(client_id=client_config['clientcred_file'],
-            access_token=client_config['usercred_file'],
-            api_base_url=client_config['api_base_url'])
+    client = mastodon.Mastodon(client_id=clientcred_file,
+            access_token=usercred_file,
+            api_base_url=config['client']['api_base_url'])
     client.toot(post)
 
 config = read_config()
+
+if not 'DEBUG' in os.environ:
+    clientcred_file = os.path.expanduser(config['client']['clientcred_file'])
+    usercred_file = os.path.expanduser(config['client']['usercred_file'])
+
+    if not os.path.exists(clientcred_file):
+        register(config)
+
+    if not os.path.exists(usercred_file):
+        login(config)
+
 local_hour = get_local_hour(config)
+adjective = select_adjective(config)
+feeling = get_feeling(config)
 
-if local_hour == config['updates'].getint('hour'):
-    adjective = select_adjective(config)
-    feeling = get_feeling(config)
-    preamble = generate_preamble(local_hour)
+if local_hour == config['updates'].getint('morning_hour'):
+    preamble = select_preamble('morning', local_hour)
+elif local_hour == config['updates'].getint('evening_hour'):
+    preamble = select_preamble('evening', local_hour)
+
+if preamble:
     post = format_post(preamble, adjective, feeling)
-    toot(config, post)
-
+    if 'DEBUG' in os.environ:
+        print('would toot: {}'.format(post))
+    else:
+        toot(config, post)
