@@ -2,6 +2,7 @@ aggressively
 amazingly
 awkwardly
 beautifully
+breezily
 cautiously
 cheerfully
 colorfully
@@ -37,6 +38,7 @@ impossibly
 insecurely
 invisibly
 keenly
+lightly
 loudly
 lovingly
 mischievously
@@ -45,7 +47,9 @@ powerfully
 proudly
 proverbially
 radiantly
+saucily
 secretly
+sharply
 shatteringly
 shockingly
 simply
@@ -56,6 +60,7 @@ spellbindingly
 squarely
 strongly
 stunningly
+sultrily
 superbly
 sweetly
 timidly
