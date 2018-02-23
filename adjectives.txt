@@ -1,8 +1,14 @@
 aggressively
 amazingly
+animatedly
+annihilatedly
+anxiously
 awkwardly
 beautifully
+blazingly
 breezily
+brightly
+brilliantly
 cautiously
 cheerfully
 colorfully
@@ -22,6 +28,8 @@ enthusiastically
 electrically
 exceedingly
 explosively
+firmly
+flagrantly
 florally
 fondly
 frankly
@@ -33,6 +41,7 @@ heartily
 highly
 hungrily
 illegally
+illuminatedly
 imperfectly
 impossibly
 insecurely
@@ -43,7 +52,10 @@ loudly
 lovingly
 mischievously
 nervously
+potently
 powerfully
+practically
+pragmatically
 proudly
 proverbially
 radiantly
@@ -62,8 +74,11 @@ strongly
 stunningly
 sultrily
 superbly
+swankily
+swayingly
 sweetly
 timidly
+trepidatiously
 unashamedly
 unbelievably
 unquestionably
