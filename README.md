@@ -36,4 +36,6 @@ I have updatebot running in its own Python [venv](https://docs.python.org/3/libr
 
 ## Inspiration
 
-updatebot was inspired by [BiBot](https://twitter.com/biupdatebot), but is a brand-new implementation by me, since I couldn't get in touch with whoever created it. My [bi update bot](https://botsin.space/@biupdatebot) runs on this codebase.
+updatebot was inspired by [BiBot](https://twitter.com/biupdatebot), but is a brand-new implementation by me, since, at the time, I didn't know it was [Misha Fletcher](https://twitter.com/mishafletch) who created it. Since then, I've done a lot of work to try to give it more personality.
+
+My [bi update bot](https://botsin.space/@biupdatebot) runs on this codebase.
