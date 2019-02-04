@@ -4,6 +4,8 @@ updatebot is a Mastodon bot that tells you just how it is feeling every day at a
 
 ## Getting started
 
+Use [Pipenv](https://docs.pipenv.org/) to set up an environment and install dependencies.
+
 Edit the `client` section in `updatebot.ini` to set up your bot as a Mastodon client.
 
 The most important thing to change is your `api_base_url`, unless you're also using [botsin.space](https://botsin.space/).
@@ -16,7 +18,7 @@ The first time you run your update bot, if it doesn't have the necessary keys, i
 
 Configuration for how the bot toots is in the `updates` section of `updatebot.ini`.
 
-`adjectives` specifies where the `adjectives.txt` file is, which contains all the possible adjectives the bot can use.
+`adverbs` specifies where the `adverbs.txt` file is, which contains all the possible adverbs the bot can use.
 
 `morning_hour`, `evening_hour` and `timezone` specifies what hour the bot will toot on. I invoke updatebot every hour because my server is in UTC; the bot then figures out if it's 8 a.m. or 8 p.m. in Detroit or not to decide whether to toot.
 
@@ -36,6 +38,6 @@ I have updatebot running in its own Python [venv](https://docs.python.org/3/libr
 
 ## Inspiration
 
-updatebot was inspired by [BiBot](https://twitter.com/biupdatebot), but is a brand-new implementation by me, since, at the time, I didn't know it was [Misha Fletcher](https://twitter.com/mishafletch) who created it. Since then, I've done a lot of work to try to give it more personality.
+updatebot was inspired by [BiBot](https://twitter.com/biupdatebot), but is a brand-new implementation by me, since, at the time, I didn't know it was [Misha Fletcher](https://twitter.com/mishafletch) who created it. Since then, I've done a lot of work to try to give it my own personality.
 
 My [bi update bot](https://botsin.space/@biupdatebot) runs on this codebase.
