@@ -22,6 +22,7 @@ authoritatively
 awkwardly
 bashfully
 beautifully
+beneficially
 blazingly
 blissfully
 boldly
@@ -30,6 +31,7 @@ bravely
 breezily
 brightly
 brilliantly
+buoyantly
 calmly
 carelessly
 cautiously
@@ -43,6 +45,7 @@ colorfully
 comfortably
 comfortingly
 compassionately
+committedly
 communally
 consciously
 continually
@@ -109,6 +112,7 @@ extremely
 fervently
 firmly
 flagrantly
+flexibly
 florally
 fluorescently
 fondly
@@ -140,6 +144,7 @@ heartily
 heatedly
 helplessly
 highly
+hilariously
 honestly
 hopelessly
 hotly
@@ -160,6 +165,7 @@ inclusively
 incorrectly
 incredibly
 independently
+indubitably
 informally
 innocently
 inquisitively
@@ -189,12 +195,15 @@ lovingly
 loyally
 luxuriously
 magically
+magnificently
 majestically
 markedly
 matter-of-factly
 meaningfully
 measurably
+mellifluously
 merrily
+messily
 mischievously
 moodily
 musically
@@ -252,6 +261,7 @@ recklessly
 relatably
 reliably
 remarkably
+repeatedly
 responsibly
 respectably
 respectfully
@@ -311,6 +321,7 @@ thirstily
 thoroughly
 thoughtfully
 timidly
+tiredly
 totally
 touchingly
 transcendentally
@@ -321,10 +332,12 @@ triumphantly
 truly
 truthfully
 unabashedly
+unambiguously
 unashamedly
 unbearably
 unbelievably
 uncontrollably
+undeniably
 unfailingly
 unnecessarily
 unquenchably
@@ -344,6 +357,7 @@ viciously
 victoriously
 vigorously
 vivaciously
+wantonly
 warmly
 wearily
 weirdly
