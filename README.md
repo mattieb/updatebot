@@ -4,7 +4,7 @@ updatebot is a Mastodon bot that tells you just how it is feeling every day at a
 
 ## Getting started
 
-Use [Pipenv](https://docs.pipenv.org/) to set up an environment and install dependencies.
+Use [Poetry](https://python-poetry.org/) to set up an environment and install dependencies.
 
 Edit the `client` section in `updatebot.ini` to set up your bot as a Mastodon client.
 
