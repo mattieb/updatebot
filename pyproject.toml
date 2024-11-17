@@ -1,17 +1,19 @@
 [tool.poetry]
 name = "updatebot"
-version = "1.0.0"
+version = "2.0.0"
 description = "a Mastodon bot that tells you just how it is feeling every day at a set time"
 authors = ["Mattie Behrens <mattie@mattiebee.io>"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
 pytz = "^2022.7.1"
-"Mastodon.py" = "^1.8.0"
-
+"Mastodon.py" = "^1.8.1"
+urllib3 = "<2" # 2.0 dropped support for non-OpenSSL libs like LibreSSL
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
