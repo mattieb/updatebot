@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # 
-# Copyright (c) 2017 Matt Behrens.
+# Copyright (c) 2017, 2018, 2019, 2023, 2024 Mattie Behrens.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -47,14 +47,16 @@ def register(config):
             to_file=clientcred_file)
 
 def login(config):
-    email = input('Email: ')
-    password = getpass.getpass('Password: ')
-
     clientcred_file = os.path.expanduser(config['client']['clientcred_file'])
-    usercred_file = os.path.expanduser(config['client']['usercred_file'])
-
     client = mastodon.Mastodon(client_id=clientcred_file, api_base_url=config['client']['api_base_url'])
-    client.log_in(email, password, to_file=usercred_file)
+
+    print("Sign in at: {}".format(client.auth_request_url()))
+    print()
+    code = input('Code: ')
+    print()
+
+    usercred_file = os.path.expanduser(config['client']['usercred_file'])
+    client.log_in(code=code, to_file=usercred_file, scopes=['read', 'write'])
 
 def get_local_hour(config):
     timezone_name = config['updates']['timezone']
