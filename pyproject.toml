@@ -11,7 +11,7 @@ package-mode = false
 python = "^3.9"
 pytz = "^2022.7.1"
 "Mastodon.py" = "^1.8.1"
-urllib3 = "<2" # 2.0 dropped support for non-OpenSSL libs like LibreSSL
+urllib3 = "<3" # 2.0 dropped support for non-OpenSSL libs like LibreSSL
 
 [build-system]
 requires = ["poetry-core"]
